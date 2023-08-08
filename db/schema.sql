@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS gamego_db;
+CREATE DATABASE gamego_db;
