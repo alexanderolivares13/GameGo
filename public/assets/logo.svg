@@ -1,0 +1,15 @@
+<svg viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .game {
+            font: 30px impact;
+            fill: #14E916;
+        }
+        .go {
+            font: 30px impact;
+            fill: white;
+        }
+    </style>
+
+    <text x="20" y="20" class="game">Game</text>
+    <text x="90" y="20" class="go">Go</text>
+</svg>

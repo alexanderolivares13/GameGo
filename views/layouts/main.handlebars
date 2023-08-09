@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameGo</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div>
+        <header class="bg-secondary">
+            <a href="/">
+                <img src="/assets/logo.svg" alt="GameGo logo">
+            </a>
+            <nav>
+                {{#if logged_in}}
+                <button type="button" class="btn btn-success" id="logout">logout</button>
+                {{else}}
+                <a href="/login">
+                <button type="button" class="btn btn-success" id="login">login</button>
+                </a>
+                {{/if}}
+            </nav>
+        </header>
+        <main>
+            {{{ body }}}
+        </main>
+        <footer>
+
+        </footer>
+    </div>
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+</body>
+
+</html>
