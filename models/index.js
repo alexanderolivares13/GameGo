@@ -6,6 +6,10 @@ VideoGame.belongsTo(Genre, {
   foreignKey: "genre_id",
 });
 
+VideoGame.hasOne(Genre, {
+  foreignKey: "genre_id",
+});
+
 Genre.hasMany(VideoGame, {
   foreignKey: "genre_id",
   onDelete: "SET NULL",
