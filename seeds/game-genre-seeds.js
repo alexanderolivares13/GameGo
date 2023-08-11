@@ -1,56 +1,88 @@
-const { ProductTag } = require('../models');
+const { GameGenres } = require('../models');
 
-const productTagData = [
+const gameGenreData = [
   {
     genre_id: 1,
+    videogame_id: 1,
+  },
+  {
+    genre_id: 1,
+    videogame_id: 2,
+  },
+  {
+    genre_id: 1,
+    videogame_id: 3,
+  },
+  {
+    genre_id: 1,
+    videogame_id: 4,
+  },
+  {
+    genre_id: 1,
+    videogame_id: 5,
+  },
+  {
+    genre_id: 2,
     videogame_id: 6,
   },
   {
-    product_id: 1,
-    tag_id: 7,
+    genre_id: 2,
+    videogame_id: 7,
   },
   {
-    product_id: 1,
-    tag_id: 8,
+    genre_id: 2,
+    videogame_id: 8,
   },
   {
-    product_id: 2,
-    tag_id: 6,
+    genre_id: 2,
+    videogame_id: 9,
   },
   {
-    product_id: 3,
-    tag_id: 1,
+    genre_id: 2,
+    videogame_id: 10,
   },
   {
-    product_id: 3,
-    tag_id: 3,
+    genre_id: 3,
+    videogame_id: 11,
   },
   {
-    product_id: 3,
-    tag_id: 4,
+    genre_id: 3,
+    videogame_id: 12,
   },
   {
-    product_id: 3,
-    tag_id: 5,
+    genre_id: 3,
+    videogame_id: 13,
   },
   {
-    product_id: 4,
-    tag_id: 1,
+    genre_id: 3,
+    videogame_id: 14,
   },
   {
-    product_id: 4,
-    tag_id: 2,
+    genre_id: 3,
+    videogame_id: 15,
   },
   {
-    product_id: 4,
-    tag_id: 8,
+    genre_id: 4,
+    videogame_id: 16,
   },
   {
-    product_id: 5,
-    tag_id: 3,
+    genre_id: 4,
+    videogame_id: 17,
+  },
+  {
+    genre_id: 4,
+    videogame_id: 18,
+  },
+  {
+    genre_id: 4,
+    videogame_id: 19,
+  },
+  {
+    genre_id: 4,
+    videogame_id: 20,
   },
 ];
 
-const seedProductTags = () => ProductTag.bulkCreate(productTagData);
+const seedGameGenres = () => GameGenres.bulkCreate(gameGenreData);
 
-module.exports = seedProductTags;
+module.exports = seedGameGenres;
