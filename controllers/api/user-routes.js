@@ -1,12 +1,11 @@
-//import user from models
-//const router = require('express').Router();
+const User = require('../../models');
+const router = require('express').Router();
 
 //----------------------------------------------- CREATE NEW USER
-/*
+
 router.post('/', async (req, res) => {
     try {
         const userDB = await User.create({
-            username: req.body.username,
             email: req.body.email,
             password: req.body.password,
         });
@@ -37,7 +36,7 @@ router.post('/login', async (req, res) => {
             return;
         }
 
-        const validPass = await userDB.checkpassword(req.body.password); //checkpassword is a function in the user model
+        const validPass = await userDB.checkPass(req.body.password); //checkpassword is a function in the user model
 
         if (!validPass) {
             res.status(400).json({message: 'Incorrect email or password!'});
@@ -66,5 +65,5 @@ router.post('/logout', (req, res) => {
 });
 
 module.exports = router;
-*/
+
 
