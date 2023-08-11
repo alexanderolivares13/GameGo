@@ -1,8 +1,8 @@
-//import user from models
-//const router = require('express').Router();
+const User = require('../../models/User')
+const router = require('express').Router();
 
 //----------------------------------------------- CREATE NEW USER
-/*
+
 router.post('/', async (req, res) => {
     try {
         const userDB = await User.create({
@@ -26,18 +26,18 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     try {
-        const userDB = await User.findOne({
+        const userData = await User.findOne({
             where: {
                 email: req.body.email,
             },
         });
 
-        if (!userDB) {
+        if (!userData) {
             res.status(400).json({message: 'Incorrect email or password!'});
             return;
         }
 
-        const validPass = await userDB.checkpassword(req.body.password); //checkpassword is a function in the user model
+        const validPass = await userData.checkpassword(req.body.password); //checkpassword is a function in the user model
 
         if (!validPass) {
             res.status(400).json({message: 'Incorrect email or password!'});
@@ -47,7 +47,7 @@ router.post('/login', async (req, res) => {
         req.session.save(() => {
             req.session.logged_in = true;
 
-            res.status(200).json({ user: userDB, message: 'You are now logged in'});
+            res.status(200).json({ user: userData, message: 'You are now logged in'});
         });
     } catch (err) {
         console.log(err);
@@ -66,5 +66,3 @@ router.post('/logout', (req, res) => {
 });
 
 module.exports = router;
-*/
-
