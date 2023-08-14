@@ -6,7 +6,6 @@ const router = require('express').Router();
 router.post('/', async (req, res) => {
     try {
         const userDB = await User.create({
-            username: req.body.username,
             email: req.body.email,
             password: req.body.password,
         });
@@ -36,7 +35,6 @@ router.post('/login', async (req, res) => {
             res.status(400).json({message: 'Incorrect email or password!'});
             return;
         }
-
         const validPass = await userData.checkPass(req.body.password); //checkpassword is a function in the user model
 
         if (!validPass) {

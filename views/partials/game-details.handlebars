@@ -1,10 +1,9 @@
-<section class="card">
+<section class="card" style="width: 18rem;">
     <a href="/game/{{id}}">
-        <header>{{title}}</header>
-
-        <div class="card-body">
-            <img src="{{game_cover}}" alt="cover of {{title}}">
-            <p>Price: {{price}}</p>
+        <img class="card-img-top" src="{{game_cover}}" alt="cover of {{title}}">
+        <div class="card-body d-flex justify-content-between">
+            <h5 class="card-title">{{title}}</h5>
+            <h5 class="card-title">{{price}}</h5>
         </div>
     </a>
 </section>
