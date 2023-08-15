@@ -4,7 +4,7 @@ const { VideoGame, Genre } = require("../models/");
 const fs = require("fs");
 const svgLogo = fs.readFileSync("./public/assets/logo.svg", "utf-8");
 
-router.get("/", async (req, res) => {
+router.get("/", authenticate, async (req, res) => {
   try {
     const videoGameData = await VideoGame.findAll({
       include: [{ model: Genre, attributes: ["genre_name"] }],
