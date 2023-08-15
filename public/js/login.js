@@ -7,7 +7,7 @@ const loginHandler = async (event) => {
     if (email && password) {
         const response = await fetch('/api/users/login', {
             method: 'POST',
-            body: JSON.stringify({ email, password }),
+            body: JSON.stringify({ email:email, password:password }),
             headers: { 'Content-Type': 'application/json' },
         });
 
@@ -29,10 +29,11 @@ const signUpHandler = async (event) => {
     const password = document.querySelector('#password-create').value.trim();
 
     if (email && password && first && last) {
-        console.log("hi");
+        const object = { first_name:first, last_name:last, email:email, password:password };
+        console.log(object);
         const response = await fetch('/api/users', {
             method: 'POST',
-            body: JSON.stringify({ email, password, first, last }),
+            body: JSON.stringify({ first_name:first, last_name:last, email:email, password:password }),
             headers: { 'Content-Type': 'application/json' },
         });
         if (response.ok) {
