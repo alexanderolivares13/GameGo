@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const authenticate = require("../utils/authenticate");
 const { VideoGame, Genre } = require("../models/");
+const fs = require("fs");
+const svgLogo = fs.readFileSync("./public/assets/logo.svg", "utf-8");
 
 router.get("/", authenticate, async (req, res) => {
   try {
@@ -14,6 +16,7 @@ router.get("/", authenticate, async (req, res) => {
     res.render("videoGames", {
       videoGames,
       logged_in: req.session.logged_in,
+      svgLogo,
     });
   } catch (err) {
     console.log(err);
@@ -27,7 +30,9 @@ router.get("/login", (req, res) => {
     return;
   }
 
-  res.render("login");
+  res.render("login", {
+    svgLogo,
+  });
 });
 
 router.get("*", (req, res) => {

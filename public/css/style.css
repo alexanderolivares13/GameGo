@@ -6,6 +6,33 @@
     color: black;
 }
 
+
+a {
+    font-size: impact;
+    text-decoration: none;
+    color: black;
+}
+
+.game-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    transition: all 0.3s ease-in-out;
+    margin: 4% 3%;
+    width: 15%;
+    border-radius: 8px;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.card-img-top {
+    max-height: 475px;
+
 .background {
     background-color: rgb(212, 212, 212);
 }
@@ -14,4 +41,4 @@
     background-color: white;
     border-radius: 8px;
     box-shadow: 10px;
-}
+  }
