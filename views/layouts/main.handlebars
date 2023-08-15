@@ -12,18 +12,22 @@
 <body>
     <div>
         <header class="bg-secondary">
-            <a href="/">
-                <img src="/assets/logo.svg" alt="GameGo logo">
-            </a>
-            <nav>
-                {{#if logged_in}}
-                <button type="button" class="btn btn-success" id="logout">logout</button>
-                {{else}}
-                <a href="/login">
-                <button type="button" class="btn btn-success" id="login">login</button>
+        <header>
+            <div class="bg-secondary d-flex justify-content-between align-items-center">
+                <a href="/" class="px-2">
+                    <img src="logo.svg" alt="GameGo logo" height="80" width="200" class="block">
                 </a>
+                <nav class="d-flex flex-column">
+                {{#if logged_in}}
+                    <button type="button" class="btn btn-success" id="logout">logout</button>
+                {{else}}
+                    <a href="/login" class="py-1 px-2">
+                    <button type="button" class="btn btn-success" id="login">login</button>
+                    </a>
                 {{/if}}
-            </nav>
+                    <a href="" class="py-1 px-2 d-flex justify-content-end">cart</a>
+                </nav>
+            </div>
         </header>
         <main>
             {{{ body }}}
