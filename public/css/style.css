@@ -9,3 +9,9 @@
 .background {
     background-color: rgb(212, 212, 212);
 }
+
+.card-background {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 10px;
+}
