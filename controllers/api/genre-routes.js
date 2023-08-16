@@ -31,7 +31,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/genre/:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
     const genreData = await Genre.update(req.body, {
       where: {
