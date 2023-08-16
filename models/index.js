@@ -19,12 +19,12 @@ Genre.hasMany(VideoGame, {
 
 Order.belongsToMany(VideoGame, {
   through: VideoGameOrder,
-  foreignKey: 'order_id',
+  foreignKey: "order_id",
 });
 
 VideoGame.belongsToMany(Order, {
   through: VideoGameOrder,
-  foreignKey: 'videogame_id',
+  foreignKey: "videogame_id",
 });
 
 Order.belongsTo(User, {
