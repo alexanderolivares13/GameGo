@@ -1,0 +1,22 @@
+<div class="d-flex justify-content between">
+    <button class="btn btn-success" id="action-btn" type="button">
+        Action
+    </button>
+    <button class="btn btn-success" id="sports-btn" type="button">
+        Sports
+    </button>
+    <button class="btn btn-success" id="rpg-btn" type="button">
+        RPG
+    </button>
+    <button class="btn btn-success" id="horror-btn" type="button">
+        Survival Horror
+    </button>
+</div>
+
+{{#each games as |game| }}
+{{#if game.genre_id===3}}
+    {{>game-details}}
+{{/if}}
+{{/each}}
+
+<script src="/js/genre.js"></script>
