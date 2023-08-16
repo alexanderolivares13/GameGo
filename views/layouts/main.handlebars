@@ -14,7 +14,7 @@
         <header class="bg-secondary">
 
             <nav>
-            <a href="/">
+            <a href="/" class="px-2">
                {{{svgLogo}}}
             </a>
                 {{#if logged_in}}
@@ -26,17 +26,10 @@
                 {{/if}}
             </nav>
         </header>
-
     </div>
-
-
         <main class="background">
-
             {{{ body }}}
         </main>
-        <footer>
-
-        </footer>
     </div>
     {{#if logged_in}}
     <script src="/js/logout.js"></script>

@@ -3,7 +3,6 @@ const User = require("../../models/User");
 
 //----------------------------------------------- CREATE NEW USER
 
-
 router.post("/", async (req, res) => {
   try {
     const userDB = await User.create({
@@ -39,8 +38,7 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-    const validPass = await userData.checkpassword(req.body.password); //checkpassword is a function in the user model
-
+    const validPass = await userData.checkPass(req.body.password); //checkpassword is a function in the user model
 
     if (!validPass) {
       res.status(400).json({ message: "Incorrect email or password!" });
