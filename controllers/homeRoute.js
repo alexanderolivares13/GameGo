@@ -24,6 +24,23 @@ router.get("/", authenticate, async (req, res) => {
   }
 });
 
+router.get("/game/:id", authenticate, async (req, res) => {
+  try {
+    const videoGame = await VideoGame.findByPk(req.params.id, {
+      include: [{ model: Genre, attributes: ["genre_name"] }],
+    });
+    const game = videoGame.get({ plain: true });
+
+    res.render("specific-game", {
+      game,
+      logged_in: req.session.logged_in,
+      svgLogo,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/");
