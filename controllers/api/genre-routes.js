@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  /* the req.body should only contain the denre_name
+  /* the req.body should only contain the genre_name
     {
         genre_name: ''
     }
@@ -31,7 +31,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/genre/:id", async (req, res) => {
   try {
     const genreData = await Genre.update(req.body, {
       where: {

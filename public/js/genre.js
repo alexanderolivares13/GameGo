@@ -1,5 +1,7 @@
+const actionBtn = document.getElementById('action-btn');
+
 const actionHandler = async (event) => {
-    event.preventDefault();
+    console.log("hi");
     document.location.replace('/action');
 };
 
@@ -18,7 +20,7 @@ const horrorHandler = async (event) => {
     document.location.replace('/horror');
 };
 
-document.querySelector('#action-btn').addEventListener('button', actionHandler);
+actionBtn.addEventListener('click', actionHandler);
 document.querySelector('#sports-btn').addEventListener('button', sportsHandler);
 document.querySelector('#rpg-btn').addEventListener('button', rpgHandler);
 document.querySelector('#horror-btn').addEventListener('button', horrorHandler);
