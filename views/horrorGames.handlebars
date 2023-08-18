@@ -1,0 +1,20 @@
+<div class="d-flex justify-content between">
+    <button id="action-btn" type="button">
+        Action
+    </button>
+    <button id="sports-btn" type="button">
+        Sports
+    </button>
+    <button id="rpg-btn" type="button">
+        RPG
+    </button>
+    <button id="horror-btn" type="button">
+        Survival Horror
+    </button>
+</div>
+
+<section class="game-section">
+{{#each horrorGames as |game|}}
+{{> game-details}}
+{{/each}}
+</section>
