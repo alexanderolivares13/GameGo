@@ -24,6 +24,6 @@ const horrorHandler = async (event) => {
 };
 
 actionBtn.addEventListener('click', actionHandler);
-sportsBtn.addEventListener('button', sportsHandler);
-rpgBtn.addEventListener('button', rpgHandler);
-horrorBtn.addEventListener('button', horrorHandler);
+sportsBtn.addEventListener('click', sportsHandler);
+rpgBtn.addEventListener('click', rpgHandler);
+horrorBtn.addEventListener('click', horrorHandler);
