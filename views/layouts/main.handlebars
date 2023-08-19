@@ -13,22 +13,24 @@
     <div>
         <header class="bg-secondary">
 
-            <nav>
-            <a href="/" class="px-2">
-               {{{svgLogo}}}
-            </a>
-                {{#if logged_in}}
-                <button type="button" class="btn btn-success" id="logout">Logout</button>
-                <button type="button" class="btn" id="shopping-cart"> Cart
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                    </svg>
-                </button>
-                {{else}}
-                <a href="/login">
-                <button type="button" class="btn btn-success" id="login">Login</button>
+            <nav class="main-navbar">
+                <a href="/" class="px-2 gamego-logo">
+                {{{svgLogo}}}
                 </a>
-                {{/if}}
+                <div class="btn-div">
+                    {{#if logged_in}}
+                    <button type="button" class="btn btn-success nav-btn" id="logout">Logout</button>
+                    <button type="button" class="btn nav-btn" id="shopping-cart"> Cart
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                    </svg>
+                    </button>
+                    {{else}}
+                    <a href="/login">
+                    <button type="button" class="btn btn-success nav-btn" id="login">Login</button>
+                    </a>
+                    {{/if}}
+                </div>
             </nav>
         </header>
     </div>
@@ -39,7 +41,9 @@
     {{#if logged_in}}
     <script src="/js/logout.js"></script>
     {{/if}}
+    <script src="https://cdn.jsdelivr.net/npm/@ecomplus/shopping-cart/dist/ecom-cart.bundle.min.js"></script>
     <script src="/js/genre.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 
 </html>

@@ -7,9 +7,25 @@
 }
 
 
+.main-navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-div {
+    display: flex;
+    align-items: center;
+}
+
+.nav-btn {
+    margin: 0 10px;
+}
+
 a {
     font-size: impact;
-    text-decoration: none;
+    text-decoration-line: none !important;
     color: black;
 }
 
@@ -20,10 +36,16 @@ a {
 }
 
 .card {
+    background-color: #6c757d;
     transition: all 0.3s ease-in-out;
     margin: 4% 3%;
     width: 15%;
     border-radius: 8px;
+}
+
+.card-title {
+    color: whitesmoke;
+    font-weight: bold;
 }
 
 .card:hover {
@@ -42,4 +64,63 @@ a {
     background-color: white;
     border-radius: 8px;
     box-shadow: 10px;
-  }
+}
+
+.game-title h1 {
+    padding-top: 2.5%;
+    text-align: center;
+    font-size: 4.0rem;
+}
+
+.game-info {
+    margin-left: 5%;
+    align-items: center;
+}
+
+.game-container {
+    padding-top: 2.5%;
+    padding-bottom: 5%;
+}
+
+.game-container img {
+    border-radius: 10px;
+    box-shadow: 10px 5px 5px rgb(29, 28, 28);
+}
+
+#add-cart {
+    font-size: 2.0rem;
+}
+
+
+
+.cart-list h1 {
+    text-align: center;
+}
+
+.cart-list ul {
+    list-style-type: none;
+}
+
+.game-li {
+    margin: 2.5% 2.5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-group-item {
+    background-color: rgb(212, 212, 212);
+    border: none;
+}
+
+.game-li h2 {
+    display: inline;
+    margin-left: 10%;
+}
+
+.list-img {
+    display: inline-block;
+    max-width: 150px;
+    max-height: 200px;
+    border-radius: 10px;
+    box-shadow: 5px 3px 3px rgb(29, 28, 28);
+}

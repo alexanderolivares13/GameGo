@@ -1,5 +1,8 @@
 const router = require("express").Router();
 const { VideoGame, Genre } = require("../../models");
+const {ecomCart, EcomCart} = require('@ecomplus/shopping-cart');
+
+
 
 router.get("/", async (req, res) => {
   try {
@@ -14,7 +17,18 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    const videoGameData = await VideoGame.findByPk({
+    const videoGameData = await VideoGame.findByPk(req.params.id, {
+      include: [{ model: Genre, attributes: ["genre_name"] }],
+    });
+    res.status(200).json(videoGameData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/add-cart/:id", async (req, res) => {
+  try {
+    const videoGameData = await VideoGame.findByPk(req.params.id, {
       include: [{ model: Genre, attributes: ["genre_name"] }],
     });
     res.status(200).json(videoGameData);
