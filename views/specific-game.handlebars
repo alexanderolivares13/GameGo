@@ -1,12 +1,15 @@
-<h1>{{game.title}}</h1>
+<h1 class="d-flex justify-content-center p-1">{{game.title}}</h1>
 
-<div class="container d-flex justify-content-center">
+<div class="container d-flex justify-content-center py-1 my-1 px-2">
     <img src="{{game.boxart_url}}" alt="Cover of {{game.title}}">
-    <div class="d-flex flex-column">
+    <div class="d-flex flex-column p-2">
         <h2 class="p-2">Price: ${{game.price}}</h2>
         <h2 class="p-2">Stock: {{game.stock}}</h2>
         <h2 class="p-2">Release Date: {{game.release_date}}</h2>
-        <button class="btn btn-primary align-items-end">add to cart</button>
     </div>
 </div>
+<div class="d-flex justify-content-center p-1">
+    <button class="btn btn-success">add to cart</button>
+</div>
+
 
