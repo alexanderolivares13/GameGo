@@ -92,7 +92,6 @@ a {
 }
 
 
-
 .cart-list h1 {
     text-align: center;
 }
@@ -123,4 +122,26 @@ a {
     max-height: 200px;
     border-radius: 10px;
     box-shadow: 5px 3px 3px rgb(29, 28, 28);
+}
+
+.list-subtotal {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.list-subtotal h2 {
+    font-family: Impact;
+    margin-right: 2.5%;
+}
+
+.remove-btn {
+    max-height: 40px;
+    border-radius: 8px
+}
+
+.checkout-btn {
+    font-size: 2.0rem;
+    border-radius: 8px;
+    margin: 2% 2%;
 }

@@ -40,22 +40,48 @@ if (window.location.href.includes("cart")) {
   let cartData = JSON.parse(localStorage.getItem("ecomShoppingCart"));
   for (let item of cartData.items) {
     let newLine = document.createElement("li");
+    let removeBtn = document.createElement("button");
+    let link = document.createElement("a");
     let imgChild = document.createElement("img");
     let gameTitle = document.createElement("h2");
-    let gamePrice = document.createElement('h2');
+    let gamePrice = document.createElement("h2");
     newLine.setAttribute("class", "game-li list-group-item");
+    newLine.setAttribute("id", `${item._id}`);
+    link.setAttribute("href", `/game/${item.product_id}`);
     imgChild.setAttribute("src", `${item.boxart_url}`);
     imgChild.setAttribute("class", "list-img");
+    removeBtn.setAttribute("class", "btn btn-danger remove-btn");
 
     gameTitle.textContent = item.name;
-    gamePrice.textContent = `Price: $ ${item.price}`
+    gamePrice.textContent = `Price: $ ${item.price}`;
 
-    newLine.append(imgChild);
+    removeBtn.append("Remove");
+    newLine.append(link);
+    link.append(imgChild);
     newLine.append(gameTitle);
-    newLine.append(gamePrice)
+    newLine.append(gamePrice);
+    newLine.append(removeBtn);
     gameUlEl.append(newLine);
 
     console.log(item);
-    console.log(newLine);
   }
+  let newLine = document.createElement("li");
+  let newHeader = document.createElement("h2");
+  let checkoutBtn = document.createElement("button");
+  newLine.setAttribute("class", "list-subtotal");
+  newHeader.textContent = `Subtotal: $${cartData.subtotal}`;
+  checkoutBtn.setAttribute("class", "btn btn-success checkout-btn");
+  checkoutBtn.append("Checkout");
+  newLine.append(newHeader);
+  newLine.append(checkoutBtn);
+  gameUlEl.append(newLine);
+
+  gameUlEl.addEventListener("click", (event) => {
+    if (event.target.innerHTML === "Remove") {
+      ecomCart.removeItem(event.target.parentNode.id);
+      window.location.reload();
+    } else if (event.target.innerHTML === "Checkout") {
+      console.log("click checkout");
+    }
+  });
 }
