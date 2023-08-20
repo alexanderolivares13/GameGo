@@ -62,8 +62,6 @@ if (window.location.href.includes("cart")) {
     newLine.append(gamePrice);
     newLine.append(removeBtn);
     gameUlEl.append(newLine);
-
-    console.log(item);
   }
   let newLine = document.createElement("li");
   let newHeader = document.createElement("h2");
