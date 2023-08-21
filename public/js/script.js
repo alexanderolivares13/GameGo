@@ -30,7 +30,7 @@ cartBtn.addEventListener("click", () => {
   console.log("click");
 });
 
-if (window.location.href.includes("/game")) {
+if (window.location.href.includes("/game/")) {
   const addCart = document.querySelector("#add-cart");
   addCart.addEventListener("click", addToCartHandler);
 }
