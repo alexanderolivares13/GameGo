@@ -1,5 +1,4 @@
 const cartBtn = document.querySelector("#shopping-cart");
-const addCart = document.querySelector("#add-cart");
 const gameInfoEl = document.querySelector(".game-info");
 
 const addToCartHandler = () => {
@@ -31,7 +30,8 @@ cartBtn.addEventListener("click", () => {
   console.log("click");
 });
 
-if (window.location.href.includes("/game")) {
+if (window.location.href.includes("/game/")) {
+  const addCart = document.querySelector("#add-cart");
   addCart.addEventListener("click", addToCartHandler);
 }
 
