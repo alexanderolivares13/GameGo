@@ -4,7 +4,49 @@ const { VideoGame, Genre } = require("../models/");
 const fs = require("fs");
 const svgLogo = fs.readFileSync("./public/assets/logo.svg", "utf-8");
 
-router.get("/action", authenticate, async (req, res) =>{
+router.get("/", authenticate, async (req, res) => {
+  try {
+    const videoGameData = await VideoGame.findAll({
+      include: [{ model: Genre, attributes: ["genre_name"] }],
+    });
+    const videoGames = videoGameData.map((videoGame) =>
+      videoGame.get({ plain: true })
+    );
+
+    res.render("videoGames", {
+      videoGames,
+      logged_in: req.session.logged_in,
+      svgLogo,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get("/login", (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect("/");
+    return;
+  }
+
+  res.render("login", {
+    svgLogo,
+  });
+});
+
+router.get("/cart", authenticate, async (req, res) => {
+  try {
+    res.render("shoppingCart", {
+      logged_in: req.session.logged_in,
+      svgLogo,
+    });
+  } catch (err) {
+    res.status(500).json(err)
+  }
+});
+
+router.get("/action", authenticate, async (req, res) => {
   try {
     const actionGameData = await VideoGame.findAll({
       where: { genre_id: 1 },
@@ -18,14 +60,13 @@ router.get("/action", authenticate, async (req, res) =>{
       logged_in: req.session.logged_in,
       svgLogo,
     });
-  }
-  catch (err) {
+  } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-router.get("/sports", authenticate, async (req, res) =>{
+router.get("/sports", authenticate, async (req, res) => {
   try {
     const sportGameData = await VideoGame.findAll({
       where: { genre_id: 2 },
@@ -39,35 +80,31 @@ router.get("/sports", authenticate, async (req, res) =>{
       logged_in: req.session.logged_in,
       svgLogo,
     });
-  }
-  catch (err) {
+  } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-router.get("/rpg", authenticate, async (req, res) =>{
+router.get("/rpg", authenticate, async (req, res) => {
   try {
     const rpgGameData = await VideoGame.findAll({
       where: { genre_id: 3 },
     });
-    const rpgGames = rpgGameData.map((rpgGame) =>
-      rpgGame.get({ plain: true })
-    );
+    const rpgGames = rpgGameData.map((rpgGame) => rpgGame.get({ plain: true }));
 
     res.render("rpgGames", {
       rpgGames,
       logged_in: req.session.logged_in,
       svgLogo,
     });
-  }
-  catch (err) {
+  } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-router.get("/horror", authenticate, async (req, res) =>{
+router.get("/horror", authenticate, async (req, res) => {
   try {
     const horrorGameData = await VideoGame.findAll({
       where: { genre_id: 4 },
@@ -78,27 +115,6 @@ router.get("/horror", authenticate, async (req, res) =>{
 
     res.render("horrorGames", {
       horrorGames,
-      logged_in: req.session.logged_in,
-      svgLogo,
-    });
-  }
-  catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
-router.get("/", authenticate, async (req, res) => {
-  try {
-    const videoGameData = await VideoGame.findAll({
-      include: [{ model: Genre, attributes: ["genre_name"] }],
-    });
-    const videoGames = videoGameData.map((videoGame) =>
-      videoGame.get({ plain: true })
-    );
-
-    res.render("videoGames", {
-      videoGames,
       logged_in: req.session.logged_in,
       svgLogo,
     });
@@ -123,17 +139,6 @@ router.get("/game/:id", authenticate, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-});
-
-router.get("/login", (req, res) => {
-  if (req.session.logged_in) {
-    res.redirect("/");
-    return;
-  }
-
-  res.render("login", {
-    svgLogo,
-  });
 });
 
 router.get("*", (req, res) => {
