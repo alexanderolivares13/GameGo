@@ -31,6 +31,16 @@ From there, a user can select the games that they want to add to their order.
 
 ## Credits 
 
+NPM packages used:
+
+- ecomplus-shopping-cart: https://www.npmjs.com/package/@ecomplus/shopping-cart
+- bcrypt: https://www.npmjs.com/package/bcrypt
+- sequelize: https://www.npmjs.com/package/sequelize
+- dotenv: https://www.npmjs.com/package/dotenv
+- express: https://www.npmjs.com/package/express
+- handlebars: https://www.npmjs.com/package/handlebars
+- mysql2: https://www.npmjs.com/package/mysql2
+
 Alexander Olivares: [GitHub Link](https://github.com/alexanderolivares13)
 
 Sam Henson: [GitHub Link](https://github.com/artorrias)
